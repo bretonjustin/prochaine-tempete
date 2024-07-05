@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Suivez les prochaines tempêtes de neige sur les montagnes du Québec.">
+    <meta name="author" content="Justin Breton">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <title>Prochaine tempête!</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="https://justinbreton.xyz/prochaine-tempete/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://justinbreton.xyz/prochaine-tempete/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://justinbreton.xyz/prochaine-tempete/favicon-16x16.png">
+    <link rel="manifest" href="https://justinbreton.xyz/prochaine-tempete/site.webmanifest">
+    <link rel="shortcut icon" href="https://justinbreton.xyz/prochaine-tempete/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="https://justinbreton.xyz/prochaine-tempete/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EPHESBFSBR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-EPHESBFSBR');
+    </script>
+    <style>
+        .scrollMe {
+            overflow-x: auto;
+        }
+    </style>
+    <style>
+        #cb-cookie-banner { position: fixed; bottom: 0; left: 0; width: 100%; z-index: 999; border-radius: 0; display: none; }
+    </style>
+    <style>
+        th:first-child, td:first-child
+        {
+          position:sticky;
+          left:-1px;
+        }
+    </style>
+</head>
+<body>
+<main role="main" class="container">
+    <h1 class="mt-4">Prochaine tempête!</h1>
+    <p>Tableau classé en ordre décroissant de la quantité de neige annoncée pour les 2 prochains jours.</p>
+    <p>Données prises à partir de <a href="https://spotwx.com/" target="_blank">SpotWx</a>. Site web créé par <a
+            href="https://justinbreton.xyz/" target="_blank">Justin Breton</a>.</p>
+    <p>Dernière mise à jour du site: {{ data.last_update }}</p>
+    <p>Modèle HRDPS: 2 jours, 2.5 km res.</p>
+    <p>Modèle RDPS: 3.5 jours, 10 km res.</p>
+    <p>Modèle NAM: 3.5 jours, 12 km res.</p>
+    <p>Modèle GDPS: 10 jours, 25 km res.</p>
+    <p>Modèle GFS: 10 jours, 0.25 deg res.</p>
+    <p>Modèle ECMWF: 5 jours, 9 km res.</p>
+    <p><b>Les valeurs affichées proviennent du modèle HRDPS 2 jours (2.5 km res.).</b></p>
+
+    <div class="scrollMe">
+        <table class="table table-striped table-responsive">
+            <thead>
+            <tr>
+                <th scope="col">Montagne&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                <th scope="col">Neige (cm)&nbsp;&nbsp;</th>
+                <th scope="col">Pluie (mm)&nbsp;&nbsp;</th>
+                <th scope="col">Verglas (mm)</th>
+                <th scope="col">Grésil (mm)&nbsp;</th>
+
+                <th scope="col">2 jours</th>
+                <th scope="col">3.5 jours</th>
+                <th scope="col">10 jours</th>
+                <th scope="col">Windy</th>
+                <th scope="col">Webcam</th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            {% for mountain in data.mountains %}
+            <tr>
+                <th scope="row"><a target="_blank" href='{{ mountain["google_map_link"] }}'>{{mountain["name"]}}</a>
+                </th>
+                <td>{{ mountain["snow"] }}</td>
+                <td>{{ mountain["rain"] }}</td>
+                <td>{{ mountain["freezing_rain"] }}</td>
+                <td>{{ mountain["ice_pellets"] }}</td>
+
+                <td class="text-nowrap"><a target="_blank" href='{{ mountain["hrdps_link"] }}'
+                                           class="btn btn-primary text-wrap"
+                                           role="button">HRDPS</a></td>
+                <td class="text-nowrap"><a target="_blank" href='{{ mountain["rdps_link"] }}'
+                                           class="btn btn-primary text-wrap"
+                                           role="button">RDPS</a>&nbsp;<a target="_blank"
+                                                                          href='{{ mountain["nam_link"] }}'
+                                                                          class="btn btn-primary text-wrap"
+                                                                          role="button">NAM</a></td>
+                <td class="text-nowrap"><a target="_blank" href='{{ mountain["gdps_link"] }}'
+                                           class="btn btn-primary text-wrap"
+                                           role="button">GDPS</a>&nbsp;<a target="_blank"
+                                                                          href='{{ mountain["gfs_link"] }}'
+                                                                          class="btn btn-primary text-wrap"
+                                                                          role="button">GFS</a></td>
+
+                <td class="text-nowrap"><a target="_blank" href='{{ mountain["windy_link"] }}'
+                                           class="btn btn-primary text-wrap"
+                                           role="button">ECMWF</a></td>
+
+                <td class="text-nowrap">À venir...</td>
+
+            </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+    <footer class="container">
+        <p>Copyright © 2024 Justin Breton, All Rights Reserved</p>
+        <div class="col-12 col-md-4 d-flex justify-content-left align-items-lrft mb-3">
+            <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
+                    data-name="bmc-button" data-slug="justinbreton" data-color="#FFDD00" data-emoji="☕"
+                    data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000"
+                    data-font-color="#000000" data-coffee-color="#ffffff"></script>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cb-cookie-banner" class="alert alert-dark text-center mb-0" role="alert">
+        🍪 This website uses cookies to ensure you get the best experience on our website.
+        <a href="https://www.cookiesandyou.com/" target="blank">Learn more</a>
+        <button type="button" class="btn btn-primary btn-sm ms-3" onclick="window.cb_hideCookieBanner()">
+            I Got It
+        </button>
+    </div>
+    <!-- End of Cookie Banner -->
+
+</main>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script>
+    /* Javascript to show and hide cookie banner using localstorage */
+    /* Shows the Cookie banner */
+    function showCookieBanner(){
+     let cookieBanner = document.getElementById("cb-cookie-banner");
+     cookieBanner.style.display = "block";
+    }
+
+    /* Hides the Cookie banner and saves the value to localstorage */
+    function hideCookieBanner(){
+     localStorage.setItem("cb_isCookieAccepted", "yes");
+     let cookieBanner = document.getElementById("cb-cookie-banner");
+     cookieBanner.style.display = "none";
+    }
+
+    /* Checks the localstorage and shows Cookie banner based on it. */
+    function initializeCookieBanner(){
+     let isCookieAccepted = localStorage.getItem("cb_isCookieAccepted");
+     if(isCookieAccepted === null)
+     {
+      localStorage.setItem("cb_isCookieAccepted", "no");
+      showCookieBanner();
+     }
+     if(isCookieAccepted === "no"){
+      showCookieBanner();
+     }
+    }
+
+    // Assigning values to window object
+    window.onload = initializeCookieBanner();
+    window.cb_hideCookieBanner = hideCookieBanner;
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
