@@ -2,18 +2,14 @@
 # !/usr/bin/python3
 
 from datetime import datetime
-import ftplib
 import time
 import sys
 import pytz
 from jinja2 import Environment, FileSystemLoader
 from helpers import get_csv
 import os
-from dotenv import load_dotenv
 from mountains import mountains
 
-
-load_dotenv()
 
 base_api_url = "https://spotwx.io/api.php"
 api_key = os.environ['API_KEY']
@@ -130,18 +126,6 @@ def generate_html(sorted_mountains):
     return file_name
 
 
-def upload_ftp(file_name):
-    username = str(os.environ['FTP_USERNAME'])
-    password = str(os.environ['FTP_PASSWORD'])
-    session = ftplib.FTP_TLS('justinbreton.xyz', username, password)
-    file = open(file_name, 'rb')  # file to send
-    session.storbinary('STOR /domains/justinbreton.xyz/public_html/prochaine-tempete/index.html', file)  # send the file
-    file.close()  # close file and FTP
-    session.quit()
-
-    print("FTP upload done")
-
-
 def main():
     try:
         unsorted_mountains = populate_dict_array()
@@ -151,10 +135,6 @@ def main():
         file_name = generate_html(sorted_mountains)
 
         print("HTML done...")
-
-        # upload_ftp(file_name)
-
-        # print("FTP done...")
 
     except Exception as e:
         exc_type, exc_obj, exc_tb = sys.exc_info()
