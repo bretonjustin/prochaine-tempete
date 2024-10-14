@@ -23,11 +23,13 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css" type="text/css">
 
      <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
          crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet-gesture-handling"></script>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
             integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -60,7 +62,7 @@
     <p>Dernière mise à jour du site: {{ data.last_update }}</p>
     <p><b>Les valeurs affichées proviennent du modèle HRDPS 2 jours (2.5 km res.).</b></p>
 
-    <table id="myTable" class="table table-striped nowrap">
+    <table id="myTable" class="table table-striped">
         <thead>
         <tr>
             <th>Montagne</th>
@@ -88,27 +90,27 @@
             <td>{{ mountain["freezing_rain"] }}</td>
             <td>{{ mountain["ice_pellets"] }}</td>
 
-            <td><a target="_blank" href='{{ mountain["hrdps_link"] }}'
+            <td class="text-nowrap"><a target="_blank" href='{{ mountain["hrdps_link"] }}'
                    class="btn btn-primary text-wrap"
                    role="button">HRDPS</a></td>
-            <td><a target="_blank" href='{{ mountain["rdps_link"] }}'
+            <td class="text-nowrap"><a target="_blank" href='{{ mountain["rdps_link"] }}'
                    class="btn btn-primary text-wrap"
                    role="button">RDPS</a>&nbsp;<a target="_blank"
                                                   href='{{ mountain["nam_link"] }}'
                                                   class="btn btn-primary text-wrap"
                                                   role="button">NAM</a></td>
-            <td><a target="_blank" href='{{ mountain["gdps_link"] }}'
+            <td class="text-nowrap"><a target="_blank" href='{{ mountain["gdps_link"] }}'
                    class="btn btn-primary text-wrap"
                    role="button">GDPS</a>&nbsp;<a target="_blank"
                                                   href='{{ mountain["gfs_link"] }}'
                                                   class="btn btn-primary text-wrap"
                                                   role="button">GFS</a></td>
 
-            <td><a target="_blank" href='{{ mountain["windy_link"] }}'
+            <td class="text-nowrap"><a target="_blank" href='{{ mountain["windy_link"] }}'
                    class="btn btn-primary text-wrap"
                    role="button">ECMWF</a></td>
 
-            <td>
+            <td class="text-nowrap">
                 {% if mountain["webcam_link"] != "" %}
                 <a target="_blank" href='{{ mountain["webcam_link"] }}'
                    class="btn btn-secondary text-wrap"
@@ -128,7 +130,7 @@
         {{ fig }}
     </div>
 
-    <div id="map" style="height:700px;" class="mt-4"></div>
+    <div id="map" style="height:700px;" class="mt-4 mb-4"></div>
 
     <footer class="container">
         <p>Copyright © 2024 Justin Breton, All Rights Reserved</p>
@@ -192,6 +194,7 @@
     $('#myTable').DataTable(
     {
     paging: false,
+    searching: false,
     info: false,
     order: {
         idx: 1,
@@ -207,8 +210,9 @@
 </script>
 
 <script type="text/javascript">
-    47.0243092,-69.6329586
-    var map = L.map('map').setView([47.0, -69.6], 7);
+    var map = L.map('map').setView([46.8, -72.3], 7);
+    map.gestureHandling.enable();
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -216,34 +220,34 @@
 
     {% for mountain in data.mountains %}
 
-    {% if mountain["snow"] | float > 25.0 %}
+    {% if mountain["snow"] | float >= 25.0 %}
         L.circle([{{ mountain["lat"] }}, {{ mountain["lon"] }}],
             {
                 color: '#00f',
                 fillColor: '#00f',
                 fillOpacity: 0.6,
-                radius: 30000
+                radius: 25000
             }
             )
             .bindPopup("{{ mountain['name'] }}: {{ mountain['snow'] }} cm")
             .addTo(map);
-    {% elif mountain["snow"] | float > 10.0 %}
+    {% elif mountain["snow"] | float >= 15.0 %}
         L.circle([{{ mountain["lat"] }}, {{ mountain["lon"] }}],
             {
                 color: '#0cf',
                 fillColor: '#0cf',
-                fillOpacity: 0.4,
+                fillOpacity: 0.6,
                 radius: 15000
             }
             )
             .bindPopup("{{ mountain['name'] }}: {{ mountain['snow'] }} cm")
             .addTo(map);
-    {% else %}
+    {% elif mountain["snow"] | float >= 5.0 %}
         L.circle([{{ mountain["lat"] }}, {{ mountain["lon"] }}],
             {
                 color: '#fff',
                 fillColor: '#fff',
-                fillOpacity: 0.2,
+                fillOpacity: 0.6,
                 radius: 5000
             }
             )

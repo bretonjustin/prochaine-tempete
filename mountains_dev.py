@@ -17,9 +17,9 @@ mountains = [
         "webcam_link": "https://www.ipcamlive.com/5a348b49b950e"
     },
     {
-        "name": "Mont Sutton",
-        "lat": "45.08195",
-        "lon": "-72.54837",
+        "name": "Mont Plante (Val-David-Val-Morin)",
+        "lat": "46.02857",
+        "lon": "-74.19882",
         "snow": 0.0,
         "rain": 0.0,
         "freezing_rain": 0.0,
@@ -31,6 +31,6 @@ mountains = [
         "gfs_link": "",
         "google_map_link": "",
         "windy_link": "",
-        "webcam_link": "https://montsutton.com/en/the-mountain/ski-conditions/"
-    },
+        "webcam_link": ""
+    }
 ]
