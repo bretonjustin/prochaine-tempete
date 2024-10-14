@@ -52,11 +52,11 @@
     <table id="myTable" class="table table-striped nowrap">
         <thead>
         <tr>
-            <th>Montagne&nbsp;&nbsp;&nbsp;&nbsp;</th>
-            <th>Neige (cm)&nbsp;&nbsp;</th>
-            <th>Pluie (mm)&nbsp;&nbsp;</th>
+            <th>Montagne</th>
+            <th>Neige (cm)</th>
+            <th>Pluie (mm)</th>
             <th>Verglas (mm)</th>
-            <th>Grésil (mm)&nbsp;</th>
+            <th>Grésil (mm)</th>
 
             <th>2 jours</th>
             <th>3.5 jours</th>
@@ -100,7 +100,7 @@
             <td>
                 {% if mountain["webcam_link"] != "" %}
                 <a target="_blank" href='{{ mountain["webcam_link"] }}'
-                   class="btn btn-primary text-wrap"
+                   class="btn btn-secondary text-wrap"
                    role="button">Webcam</a>
                 {% else %}
                 À venir...
@@ -187,7 +187,8 @@
     scrollX: true,
     fixedColumns: {
         left: 1
-    }
+    },
+    columnDefs: [{ orderable: false, targets: 5 }, { orderable: false, targets: 6 }, { orderable: false, targets: 7 }, { orderable: false, targets: 8 }, { orderable: false, targets: 9 }]
     });
 } );
 </script>

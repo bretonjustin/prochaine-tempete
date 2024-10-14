@@ -508,5 +508,22 @@ mountains = [
         "google_map_link": "",
         "windy_link": "",
         "webcam_link": "",
+    },
+    {
+        "name": "Jay Peak",
+        "lat": "44.91583",
+        "lon": "-72.54750",
+        "snow": 0.0,
+        "rain": 0.0,
+        "freezing_rain": 0.0,
+        "ice_pellets": 0.0,
+        "hrdps_link": "",
+        "gdps_link": "",
+        "rdps_link": "",
+        "nam_link": "",
+        "gfs_link": "",
+        "google_map_link": "",
+        "windy_link": "",
+        "webcam_link": "https://jaypeakresort.com/resort/photo-day",
     }
 ]
