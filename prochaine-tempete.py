@@ -126,13 +126,7 @@ def plot(data):
         yaxis_title=None,
         dragmode=False,
         margin=dict(l=10, r=10, t=40, b=40),
-        legend=dict(
-            orientation="h",  # Set legend horizontal
-            yanchor="top",
-            y=-0.2,  # Adjust the 'y' position to place it below the x-axis ticks
-            xanchor="center",
-            x=0.5
-        ),
+        showlegend=False
         )
 
     # Disable zooming and panning
