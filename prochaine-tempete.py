@@ -8,7 +8,8 @@ import pytz
 from jinja2 import Environment, FileSystemLoader
 from helpers import get_csv
 import os
-from mountains import mountains
+from mountains_dev import mountains
+import plotly.graph_objects as go
 
 
 base_api_url = "https://spotwx.io/api.php"
@@ -58,6 +59,16 @@ def populate_dict_array():
 
         csv_data = get_csv(url)
 
+        mountain["snow_array"] = []
+        mountain["time"] = []
+        for row in csv_data:
+            mountain["snow_array"].append(float(row["SQP"]))
+
+            date_string = row["DATETIME"]
+            date_format = "%Y/%m/%d %H:%M"
+            date_obj = datetime.strptime(date_string, date_format)
+            mountain["time"].append(date_obj)
+
         mountain["snow"] = csv_data[len(csv_data) - 1]["SQP"]
         mountain["rain"] = csv_data[len(csv_data) - 1]["RQP"]
         mountain["freezing_rain"] = csv_data[len(csv_data) - 1]["FQP"]
@@ -104,7 +115,38 @@ def populate_dict_array():
     return mountains
 
 
-def generate_html(sorted_mountains):
+def plot(data):
+    fig = go.Figure()
+    for row in data:
+        fig.add_trace(go.Scatter(x=row['time'], y=row['snow_array'], mode='lines', name=row['name']))
+
+    fig.update_layout(
+        title="Accumulation de neige 2 jours",
+        xaxis_title=None,
+        yaxis_title=None,
+        dragmode=False,
+        margin=dict(l=10, r=10, t=40, b=40),
+        legend=dict(
+            orientation="h",  # Set legend horizontal
+            yanchor="top",
+            y=-0.2,  # Adjust the 'y' position to place it below the x-axis ticks
+            xanchor="center",
+            x=0.5
+        ),
+        )
+
+    # Disable zooming and panning
+    config = dict(
+        displayModeBar=False,
+        scrollZoom=False,
+        doubleClick=False,
+        modeBarButtonsToRemove=['zoom2d', 'pan2d', 'select2d', 'lasso2d']
+    )
+
+    return fig.to_html(full_html=False, include_plotlyjs='cdn', config=config)
+
+
+def generate_html(sorted_mountains, fig):
     # Get the current time in Montreal timezone
     now = datetime.now(montreal_timezone)
 
@@ -114,9 +156,9 @@ def generate_html(sorted_mountains):
     }
 
     # Load a template from the templates directory
-    template = templates.get_template('prochaine_tempete.html')
+    template = templates.get_template('prochaine_tempete_v2.html')
 
-    output = template.render({"data": data})
+    output = template.render({"data": data, "fig": fig})
 
     file_name = 'output/index.html'
     os.makedirs(os.path.dirname(file_name), exist_ok=True)
@@ -132,7 +174,9 @@ def main():
 
         sorted_mountains = sorted(unsorted_mountains, key=lambda x: float(x["snow"]), reverse=True)
 
-        file_name = generate_html(sorted_mountains)
+        fig = plot(sorted_mountains)
+
+        file_name = generate_html(sorted_mountains, fig)
 
         print("HTML done...")
 

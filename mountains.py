@@ -14,7 +14,7 @@ mountains = [
         "gfs_link": "",
         "google_map_link": "",
         "windy_link": "",
-        "webcam_link": ""
+        "webcam_link": "https://www.ipcamlive.com/5a348b49b950e"
     },
     {
         "name": "Mont Sutton",
@@ -31,7 +31,7 @@ mountains = [
         "gfs_link": "",
         "google_map_link": "",
         "windy_link": "",
-        "webcam_link": ""
+        "webcam_link": "https://montsutton.com/en/the-mountain/ski-conditions/"
     },
     {
         "name": "Mont Lyall",
@@ -48,7 +48,7 @@ mountains = [
         "gfs_link": "",
         "google_map_link": "",
         "windy_link": "",
-        "webcam_link": ""
+        "webcam_link": "https://avalanchequebec.ca/en/webcam/"
     },
     {
         "name": "Mont Gosford",
@@ -99,7 +99,7 @@ mountains = [
         "gfs_link": "",
         "google_map_link": "",
         "windy_link": "",
-        "webcam_link": ""
+        "webcam_link": "https://avalanchequebec.ca/en/webcam/"
     },
     {
         "name": "Massif du Sud",
@@ -116,7 +116,7 @@ mountains = [
         "gfs_link": "",
         "google_map_link": "",
         "windy_link": "",
-        "webcam_link": ""
+        "webcam_link": "https://massifdusud.net/fr/decouvrir/conditions-ski/"
     },
     {
         "name": "Mont Edouard",
@@ -133,7 +133,7 @@ mountains = [
         "gfs_link": "",
         "google_map_link": "",
         "windy_link": "",
-        "webcam_link": ""
+        "webcam_link": "https://www.montedouard.com/webcams"
     },
     {
         "name": "Massif de Charlevoix",
@@ -150,7 +150,7 @@ mountains = [
         "gfs_link": "",
         "google_map_link": "",
         "windy_link": "",
-        "webcam_link": ""
+        "webcam_link": "https://www.lemassif.com/fr/montagne/ete/meteo-et-webcams"
     },
     {
         "name": "Mont Orford",
@@ -184,7 +184,7 @@ mountains = [
         "gfs_link": "",
         "google_map_link": "",
         "windy_link": "",
-        "webcam_link": ""
+        "webcam_link": "https://mont-sainte-anne.com/en/alpine-skiing-webcams/"
     },
     {
         "name": "Montagne Noire",
@@ -269,7 +269,7 @@ mountains = [
         "gfs_link": "",
         "google_map_link": "",
         "windy_link": "",
-        "webcam_link": ""
+        "webcam_link": "https://montstmathieu.com/webcams/"
     },
     {
         "name": "Mont Alta",
@@ -354,7 +354,7 @@ mountains = [
         "gfs_link": "",
         "google_map_link": "",
         "windy_link": "",
-        "webcam_link": ""
+        "webcam_link": "https://avalanchequebec.ca/en/webcam/"
     },
     {
         "name": "Mont Veyrier (Monts Groulx)",
@@ -405,7 +405,7 @@ mountains = [
         "gfs_link": "",
         "google_map_link": "",
         "windy_link": "",
-        "webcam_link": "",
+        "webcam_link": "https://valinouet.qc.ca/en/live-cam-weather/",
     },
     {
         "name": "Ski Bromont",
@@ -422,7 +422,7 @@ mountains = [
         "gfs_link": "",
         "google_map_link": "",
         "windy_link": "",
-        "webcam_link": "",
+        "webcam_link": "https://www.bromontmontagne.com/en/webcams/",
     },
     {
         "name": "Owl's Head",
@@ -439,7 +439,7 @@ mountains = [
         "gfs_link": "",
         "google_map_link": "",
         "windy_link": "",
-        "webcam_link": "",
+        "webcam_link": "https://owlshead.com/en/ski-conditions/",
     },
     {
         "name": "Mont Blanc",
@@ -473,7 +473,7 @@ mountains = [
         "gfs_link": "",
         "google_map_link": "",
         "windy_link": "",
-        "webcam_link": "",
+        "webcam_link": "https://www.tremblant.ca/mountain-village/webcams",
     },
     {
         "name": "Mont Shefford",
@@ -493,8 +493,7 @@ mountains = [
         "webcam_link": "",
     },
     {
-        "name":
-            "Mont Adstock",
+        "name": "Mont Adstock",
         "lat": "46.03107",
         "lon": "-71.20695",
         "snow": 0.0,
@@ -509,5 +508,22 @@ mountains = [
         "google_map_link": "",
         "windy_link": "",
         "webcam_link": "",
+    },
+    {
+        "name": "Jay Peak",
+        "lat": "44.91583",
+        "lon": "-72.54750",
+        "snow": 0.0,
+        "rain": 0.0,
+        "freezing_rain": 0.0,
+        "ice_pellets": 0.0,
+        "hrdps_link": "",
+        "gdps_link": "",
+        "rdps_link": "",
+        "nam_link": "",
+        "gfs_link": "",
+        "google_map_link": "",
+        "windy_link": "",
+        "webcam_link": "https://jaypeakresort.com/resort/photo-day",
     }
 ]

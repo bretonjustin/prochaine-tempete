@@ -14,7 +14,7 @@ mountains = [
         "gfs_link": "",
         "google_map_link": "",
         "windy_link": "",
-        "webcam_link": ""
+        "webcam_link": "https://www.ipcamlive.com/5a348b49b950e"
     },
     {
         "name": "Mont Sutton",
@@ -31,6 +31,6 @@ mountains = [
         "gfs_link": "",
         "google_map_link": "",
         "windy_link": "",
-        "webcam_link": ""
+        "webcam_link": "https://montsutton.com/en/the-mountain/ski-conditions/"
     },
 ]
