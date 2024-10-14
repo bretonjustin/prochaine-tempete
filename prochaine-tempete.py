@@ -8,7 +8,7 @@ import pytz
 from jinja2 import Environment, FileSystemLoader
 from helpers import get_csv
 import os
-from mountains_dev import mountains
+from mountains import mountains
 import plotly.graph_objects as go
 
 
