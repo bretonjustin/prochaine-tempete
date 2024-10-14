@@ -126,11 +126,78 @@
         </tbody>
     </table>
 
+    <script>
+        $('#myTable').DataTable(
+        {
+        paging: false,
+        searching: false,
+        info: false,
+        order: {
+            idx: 1,
+            dir: 'desc'
+        },
+        scrollX: true,
+        fixedColumns: {
+            left: 1
+        },
+        columnDefs: [{ orderable: false, targets: 5 }, { orderable: false, targets: 6 }, { orderable: false, targets: 7 }, { orderable: false, targets: 8 }, { orderable: false, targets: 9 }]
+        });
+    </script>
+
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
     <div>
         {{ fig | safe }}
     </div>
 
     <div id="map" style="height:700px;" class="mt-4 mb-4"></div>
+    <script type="text/javascript">
+        var map = L.map('map').setView([46.8, -72.3], 7);
+        map.gestureHandling.enable();
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        {% for mountain in data.mountains %}
+
+        {% if mountain["snow"] | float >= 25.0 %}
+            L.circle([{{ mountain["lat"] }}, {{ mountain["lon"] }}],
+                {
+                    color: '#00f',
+                    fillColor: '#00f',
+                    fillOpacity: 0.6,
+                    radius: 30000
+                }
+                )
+                .bindPopup("{{ mountain['name'] }}: {{ mountain['snow'] }} cm")
+                .addTo(map);
+        {% elif mountain["snow"] | float >= 15.0 %}
+            L.circle([{{ mountain["lat"] }}, {{ mountain["lon"] }}],
+                {
+                    color: '#0cf',
+                    fillColor: '#0cf',
+                    fillOpacity: 0.6,
+                    radius: 20000
+                }
+                )
+                .bindPopup("{{ mountain['name'] }}: {{ mountain['snow'] }} cm")
+                .addTo(map);
+        {% elif mountain["snow"] | float >= 5.0 %}
+            L.circle([{{ mountain["lat"] }}, {{ mountain["lon"] }}],
+                {
+                    color: '#fff',
+                    fillColor: '#fff',
+                    fillOpacity: 0.6,
+                    radius: 10000
+                }
+                )
+                .bindPopup("{{ mountain['name'] }}: {{ mountain['snow'] }} cm")
+                .addTo(map);
+        {% endif %}
+
+        {% endfor %}
+</script>
 
     <footer class="container">
         <p>Copyright © 2024 Justin Breton, All Rights Reserved</p>
@@ -187,77 +254,6 @@
     // Assigning values to window object
     window.onload = initializeCookieBanner();
     window.cb_hideCookieBanner = hideCookieBanner;
-</script>
-
-<script>
-    $(document).ready( function () {
-        $('#myTable').DataTable(
-        {
-        paging: false,
-        searching: false,
-        info: false,
-        order: {
-            idx: 1,
-            dir: 'desc'
-        },
-        scrollX: true,
-        fixedColumns: {
-            left: 1
-        },
-        columnDefs: [{ orderable: false, targets: 5 }, { orderable: false, targets: 6 }, { orderable: false, targets: 7 }, { orderable: false, targets: 8 }, { orderable: false, targets: 9 }]
-        });
-    } );
-</script>
-
-<script type="text/javascript">
-    $( document ).ready(function() {
-        var map = L.map('map').setView([46.8, -72.3], 7);
-        map.gestureHandling.enable();
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(map);
-
-        {% for mountain in data.mountains %}
-
-        {% if mountain["snow"] | float >= 25.0 %}
-            L.circle([{{ mountain["lat"] }}, {{ mountain["lon"] }}],
-                {
-                    color: '#00f',
-                    fillColor: '#00f',
-                    fillOpacity: 0.6,
-                    radius: 30000
-                }
-                )
-                .bindPopup("{{ mountain['name'] }}: {{ mountain['snow'] }} cm")
-                .addTo(map);
-        {% elif mountain["snow"] | float >= 15.0 %}
-            L.circle([{{ mountain["lat"] }}, {{ mountain["lon"] }}],
-                {
-                    color: '#0cf',
-                    fillColor: '#0cf',
-                    fillOpacity: 0.6,
-                    radius: 20000
-                }
-                )
-                .bindPopup("{{ mountain['name'] }}: {{ mountain['snow'] }} cm")
-                .addTo(map);
-        {% elif mountain["snow"] | float >= 5.0 %}
-            L.circle([{{ mountain["lat"] }}, {{ mountain["lon"] }}],
-                {
-                    color: '#fff',
-                    fillColor: '#fff',
-                    fillOpacity: 0.6,
-                    radius: 10000
-                }
-                )
-                .bindPopup("{{ mountain['name'] }}: {{ mountain['snow'] }} cm")
-                .addTo(map);
-        {% endif %}
-
-        {% endfor %}
-    });
 </script>
 
 </body>

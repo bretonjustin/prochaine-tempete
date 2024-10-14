@@ -137,7 +137,7 @@ def plot(data):
         modeBarButtonsToRemove=['zoom2d', 'pan2d', 'select2d', 'lasso2d']
     )
 
-    return fig.to_html(full_html=False, include_plotlyjs=True, config=config)
+    return fig.to_html(full_html=False, include_plotlyjs='cdn', config=config)
 
 
 def generate_html(sorted_mountains, fig):
