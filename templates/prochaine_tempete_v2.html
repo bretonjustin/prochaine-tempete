@@ -13,30 +13,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-
     <!-- Data tables section -->
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/5.0.3/css/fixedColumns.dataTables.min.css"/>
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
-    <script src="https://cdn.datatables.net/fixedcolumns/5.0.3/js/dataTables.fixedColumns.min.js"></script>
 
     <!-- Leaflet section -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css" type="text/css">
-
-     <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-         crossorigin=""></script>
-    <script src="https://unpkg.com/leaflet-gesture-handling"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EPHESBFSBR"></script>
@@ -126,33 +111,108 @@
         </tbody>
     </table>
 
-    <script>
-        $('#myTable').DataTable(
-        {
-        paging: false,
-        searching: false,
-        info: false,
-        order: {
-            idx: 1,
-            dir: 'desc'
-        },
-        scrollX: true,
-        fixedColumns: {
-            left: 1
-        },
-        columnDefs: [{ orderable: false, targets: 5 }, { orderable: false, targets: 6 }, { orderable: false, targets: 7 }, { orderable: false, targets: 8 }, { orderable: false, targets: 9 }]
-        });
-    </script>
-
-    <script src="https://code.highcharts.com/highcharts.js"></script>
     <div id="my_chart">
     </div>
-    <script>
-        {{ fig | safe }}
-    </script>
 
     <div id="map" style="height:600px;" class="mt-4 mb-4"></div>
-    <script type="text/javascript">
+
+
+    <footer class="container">
+        <p>Copyright © 2024 Justin Breton, All Rights Reserved</p>
+        <div class="col-12 col-md-4 d-flex justify-content-left align-items-lrft mb-3">
+            <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
+                    data-name="bmc-button" data-slug="justinbreton" data-color="#FFDD00" data-emoji="☕"
+                    data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000"
+                    data-font-color="#000000" data-coffee-color="#ffffff"></script>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cb-cookie-banner" class="alert alert-dark text-center mb-0" role="alert">
+        🍪 This website uses cookies to ensure you get the best experience on our website.
+        <a href="https://www.cookiesandyou.com/" target="blank">Learn more</a>
+        <button type="button" class="btn btn-primary btn-sm ms-3" onclick="window.cb_hideCookieBanner()">
+            I Got It
+        </button>
+    </div>
+    <!-- End of Cookie Banner -->
+
+</main>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+crossorigin="anonymous"></script>
+
+<script>
+    /* Javascript to show and hide cookie banner using localstorage */
+    /* Shows the Cookie banner */
+    function showCookieBanner(){
+     let cookieBanner = document.getElementById("cb-cookie-banner");
+     cookieBanner.style.display = "block";
+    }
+
+    /* Hides the Cookie banner and saves the value to localstorage */
+    function hideCookieBanner(){
+     localStorage.setItem("cb_isCookieAccepted", "yes");
+     let cookieBanner = document.getElementById("cb-cookie-banner");
+     cookieBanner.style.display = "none";
+    }
+
+    /* Checks the localstorage and shows Cookie banner based on it. */
+    function initializeCookieBanner(){
+     let isCookieAccepted = localStorage.getItem("cb_isCookieAccepted");
+     if(isCookieAccepted === null)
+     {
+      localStorage.setItem("cb_isCookieAccepted", "no");
+      showCookieBanner();
+     }
+     if(isCookieAccepted === "no"){
+      showCookieBanner();
+     }
+    }
+
+    // Assigning values to window object
+    window.onload = initializeCookieBanner();
+    window.cb_hideCookieBanner = hideCookieBanner;
+</script>
+
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/fixedcolumns/5.0.3/js/dataTables.fixedColumns.min.js"></script>
+
+<script>
+    $('#myTable').DataTable(
+    {
+    paging: false,
+    searching: false,
+    info: false,
+    order: {
+        idx: 1,
+        dir: 'desc'
+    },
+    scrollX: true,
+    fixedColumns: {
+        left: 1
+    },
+    columnDefs: [{ orderable: false, targets: 5 }, { orderable: false, targets: 6 }, { orderable: false, targets: 7 }, { orderable: false, targets: 8 }, { orderable: false, targets: 9 }]
+    });
+</script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script>
+    {{ fig | safe }}
+</script>
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+<script src="https://unpkg.com/leaflet-gesture-handling"></script>
+<script type="text/javascript">
         var map = L.map('map').setView([46.8, -72.3], 7);
         map.gestureHandling.enable();
 
@@ -199,63 +259,6 @@
         {% endif %}
 
         {% endfor %}
-</script>
-
-    <footer class="container">
-        <p>Copyright © 2024 Justin Breton, All Rights Reserved</p>
-        <div class="col-12 col-md-4 d-flex justify-content-left align-items-lrft mb-3">
-            <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
-                    data-name="bmc-button" data-slug="justinbreton" data-color="#FFDD00" data-emoji="☕"
-                    data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000"
-                    data-font-color="#000000" data-coffee-color="#ffffff"></script>
-        </div>
-    </footer>
-
-    <!-- Cookie Banner -->
-    <div id="cb-cookie-banner" class="alert alert-dark text-center mb-0" role="alert">
-        🍪 This website uses cookies to ensure you get the best experience on our website.
-        <a href="https://www.cookiesandyou.com/" target="blank">Learn more</a>
-        <button type="button" class="btn btn-primary btn-sm ms-3" onclick="window.cb_hideCookieBanner()">
-            I Got It
-        </button>
-    </div>
-    <!-- End of Cookie Banner -->
-
-</main>
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script>
-    /* Javascript to show and hide cookie banner using localstorage */
-    /* Shows the Cookie banner */
-    function showCookieBanner(){
-     let cookieBanner = document.getElementById("cb-cookie-banner");
-     cookieBanner.style.display = "block";
-    }
-
-    /* Hides the Cookie banner and saves the value to localstorage */
-    function hideCookieBanner(){
-     localStorage.setItem("cb_isCookieAccepted", "yes");
-     let cookieBanner = document.getElementById("cb-cookie-banner");
-     cookieBanner.style.display = "none";
-    }
-
-    /* Checks the localstorage and shows Cookie banner based on it. */
-    function initializeCookieBanner(){
-     let isCookieAccepted = localStorage.getItem("cb_isCookieAccepted");
-     if(isCookieAccepted === null)
-     {
-      localStorage.setItem("cb_isCookieAccepted", "no");
-      showCookieBanner();
-     }
-     if(isCookieAccepted === "no"){
-      showCookieBanner();
-     }
-    }
-
-    // Assigning values to window object
-    window.onload = initializeCookieBanner();
-    window.cb_hideCookieBanner = hideCookieBanner;
 </script>
 
 </body>
