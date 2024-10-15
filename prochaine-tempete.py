@@ -10,6 +10,7 @@ from helpers import get_csv
 import os
 from mountains import mountains
 import plotly.graph_objects as go
+from highcharts_core.chart import Chart
 
 
 base_api_url = "https://spotwx.io/api.php"
@@ -115,6 +116,28 @@ def populate_dict_array():
     return mountains
 
 
+def plot_highcharts(data):
+    snow_array = []
+    for row in data:
+        snow_array.append({"name": row['name'], "data": row['snow_array']})
+
+    time_array = data[0]['time']
+
+    for i in range(len(time_array)):
+        time_array[i] = time_array[i].strftime("%b %d %H:%M")
+
+    chart = Chart(container='my_chart', options={
+        "chart": {"type": "line"},
+        "title": {"text": "Accumulation de neige 2 jours"},
+        "xAxis": {"categories": time_array},
+        "yAxis": {"title": {"text": "Neige (cm)"}},
+        "series": snow_array,
+        "legend": {"layout": "horizontal", "align": "center", "verticalAlign": "bottom"},
+    })
+
+    return chart.to_js_literal()
+
+
 def plot(data):
     fig = go.Figure()
     for row in data:
@@ -168,7 +191,8 @@ def main():
 
         sorted_mountains = sorted(unsorted_mountains, key=lambda x: float(x["snow"]), reverse=True)
 
-        fig = plot(sorted_mountains)
+        # fig = plot(sorted_mountains)
+        fig = plot_highcharts(sorted_mountains)
 
         file_name = generate_html(sorted_mountains, fig)
 

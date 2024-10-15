@@ -144,11 +144,14 @@
         });
     </script>
 
-    <div>
-        {{ fig | safe }}
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <div id="my_chart">
     </div>
+    <script>
+        {{ fig | safe }}
+    </script>
 
-    <div id="map" style="height:700px;" class="mt-4 mb-4"></div>
+    <div id="map" style="height:600px;" class="mt-4 mb-4"></div>
     <script type="text/javascript">
         var map = L.map('map').setView([46.8, -72.3], 7);
         map.gestureHandling.enable();
