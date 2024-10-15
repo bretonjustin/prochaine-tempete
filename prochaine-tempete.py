@@ -127,12 +127,17 @@ def plot_highcharts(data):
         time_array[i] = time_array[i].strftime("%b %d %H:%M")
 
     chart = Chart(container='my_chart', options={
-        "chart": {"type": "line"},
+        "chart": {"type": "line",
+                  "height": 500,  # Set minimum height here
+                  "style": {
+                      "minHeight": "500px"  # Ensure it's respected across various devices
+                  }
+                  },
         "title": {"text": "Accumulation de neige 2 jours"},
         "xAxis": {"categories": time_array},
         "yAxis": {"title": {"text": "Neige (cm)"}},
         "series": snow_array,
-        "legend": {"layout": "horizontal", "align": "center", "verticalAlign": "bottom"},
+        "legend": {"enabled": False},  # Disable legend
     })
 
     return chart.to_js_literal()
