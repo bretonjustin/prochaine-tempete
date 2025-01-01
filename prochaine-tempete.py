@@ -143,31 +143,6 @@ def plot_highcharts(data):
     return chart.to_js_literal()
 
 
-def plot(data):
-    fig = go.Figure()
-    for row in data:
-        fig.add_trace(go.Scatter(x=row['time'], y=row['snow_array'], mode='lines', name=row['name']))
-
-    fig.update_layout(
-        title="Accumulation de neige 2 jours",
-        xaxis_title=None,
-        yaxis_title=None,
-        dragmode=False,
-        margin=dict(l=10, r=10, t=40, b=40),
-        showlegend=False
-        )
-
-    # Disable zooming and panning
-    config = dict(
-        displayModeBar=False,
-        scrollZoom=False,
-        doubleClick=False,
-        modeBarButtonsToRemove=['zoom2d', 'pan2d', 'select2d', 'lasso2d']
-    )
-
-    return fig.to_html(full_html=False, include_plotlyjs='cdn', config=config)
-
-
 def generate_html(sorted_mountains, fig):
     # Get the current time in Montreal timezone
     now = datetime.now(montreal_timezone)
@@ -196,7 +171,6 @@ def main():
 
         sorted_mountains = sorted(unsorted_mountains, key=lambda x: float(x["snow"]), reverse=True)
 
-        # fig = plot(sorted_mountains)
         fig = plot_highcharts(sorted_mountains)
 
         file_name = generate_html(sorted_mountains, fig)

@@ -1,6 +1,7 @@
 mountains = [
     {
         "name": "Mont Comi",
+        "region": "Bas-Saint-Laurent",
         "lat": "48.46575",
         "lon": "-68.21036",
         "snow": 0.0,
@@ -17,7 +18,8 @@ mountains = [
         "webcam_link": "https://www.ipcamlive.com/5a348b49b950e"
     },
     {
-        "name": "Mont Plante (Val-David-Val-Morin)",
+        "name": "Mont Plante",
+        "region": "Laurentides",
         "lat": "46.02857",
         "lon": "-74.19882",
         "snow": 0.0,

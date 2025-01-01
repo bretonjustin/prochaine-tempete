@@ -1,6 +1,7 @@
 mountains = [
     {
         "name": "Mont Comi",
+        "region": "Bas-Saint-Laurent",
         "lat": "48.46575",
         "lon": "-68.21036",
         "snow": 0.0,
@@ -18,6 +19,7 @@ mountains = [
     },
     {
         "name": "Mont Sutton",
+        "region": "Estrie",
         "lat": "45.08195",
         "lon": "-72.54837",
         "snow": 0.0,
@@ -35,6 +37,7 @@ mountains = [
     },
     {
         "name": "Mont Lyall",
+        "region": "Gaspésie",
         "lat": "48.80412",
         "lon": "-66.08622",
         "snow": 0.0,
@@ -52,6 +55,7 @@ mountains = [
     },
     {
         "name": "Mont Gosford",
+        "region": "Estrie",
         "lat": "45.30179",
         "lon": "-70.86683",
         "snow": 0.0,
@@ -69,6 +73,7 @@ mountains = [
     },
     {
         "name": "Mont Hereford",
+        "region": "Estrie",
         "lat": "45.08229",
         "lon": "-71.60047",
         "snow": 0.0,
@@ -86,6 +91,7 @@ mountains = [
     },
     {
         "name": "Mont Albert",
+        "region": "Gaspésie",
         "lat": "48.93293",
         "lon": "-66.17872",
         "snow": 0.0,
@@ -103,6 +109,7 @@ mountains = [
     },
     {
         "name": "Massif du Sud",
+        "region": "Chaudière-Appalaches",
         "lat": "46.62235",
         "lon": "-70.48768",
         "snow": 0.0,
@@ -116,10 +123,11 @@ mountains = [
         "gfs_link": "",
         "google_map_link": "",
         "windy_link": "",
-        "webcam_link": "https://massifdusud.net/fr/decouvrir/conditions-ski/"
+        "webcam_link": "https://rtsp.me/embed/n82fTnbQ/"
     },
     {
         "name": "Mont Edouard",
+        "region": "Saguenay-Lac-Saint-Jean",
         "lat": "48.15209",
         "lon": "-70.28355",
         "snow": 0.0,
@@ -137,6 +145,7 @@ mountains = [
     },
     {
         "name": "Massif de Charlevoix",
+        "region": "Capitale-Nationale",
         "lat": "47.27839",
         "lon": "-70.61007",
         "snow": 0.0,
@@ -154,6 +163,7 @@ mountains = [
     },
     {
         "name": "Mont Orford",
+        "region": "Estrie",
         "lat": "45.31228",
         "lon": "-72.24160",
         "snow": 0.0,
@@ -171,6 +181,7 @@ mountains = [
     },
     {
         "name": "Mont Saint-Anne",
+        "region": "Capitale-Nationale",
         "lat": "47.08696",
         "lon": "-70.93293",
         "snow": 0.0,
@@ -188,6 +199,7 @@ mountains = [
     },
     {
         "name": "Montagne Noire",
+        "region": "Lanaudière",
         "lat": "46.24366",
         "lon": "-74.29391",
         "snow": 0.0,
@@ -205,6 +217,7 @@ mountains = [
     },
     {
         "name": "Mont des Allemands",
+        "region": "Saguenay-Lac-Saint-Jean",
         "lat": "49.17056",
         "lon": "-71.47667",
         "snow": 0.0,
@@ -221,41 +234,8 @@ mountains = [
         "webcam_link": ""
     },
     {
-        "name": "Mont Jacob",
-        "lat": "48.41679",
-        "lon": "-71.26578",
-        "snow": 0.0,
-        "rain": 0.0,
-        "freezing_rain": 0.0,
-        "ice_pellets": 0.0,
-        "hrdps_link": "",
-        "gdps_link": "",
-        "rdps_link": "",
-        "nam_link": "",
-        "gfs_link": "",
-        "google_map_link": "",
-        "windy_link": "",
-        "webcam_link": ""
-    },
-    {
-        "name": "Mont Brillant",
-        "lat": "46.91041",
-        "lon": "-71.46024",
-        "snow": 0.0,
-        "rain": 0.0,
-        "freezing_rain": 0.0,
-        "ice_pellets": 0.0,
-        "hrdps_link": "",
-        "gdps_link": "",
-        "rdps_link": "",
-        "nam_link": "",
-        "gfs_link": "",
-        "google_map_link": "",
-        "windy_link": "",
-        "webcam_link": ""
-    },
-    {
         "name": "Mont Saint-Mathieu",
+        "region": "Mauricie",
         "lat": "46.59737",
         "lon": "-72.83955",
         "snow": 0.0,
@@ -273,6 +253,7 @@ mountains = [
     },
     {
         "name": "Mont Alta",
+        "region": "Laurentides",
         "lat": "46.03834",
         "lon": "-74.24119",
         "snow": 0.0,
@@ -290,6 +271,7 @@ mountains = [
     },
     {
         "name": "Mont Gallix",
+        "region": "Côte-Nord",
         "lat": "50.16871",
         "lon": "-66.71735",
         "snow": 0.0,
@@ -307,6 +289,7 @@ mountains = [
     },
     {
         "name": "Mont Plante (Val-David-Val-Morin)",
+        "region": "Laurentides",
         "lat": "46.02857",
         "lon": "-74.19882",
         "snow": 0.0,
@@ -323,24 +306,8 @@ mountains = [
         "webcam_link": ""
     },
     {
-        "name": "Les Sentiers du Moulin",
-        "lat": "46.97585",
-        "lon": "-71.25365",
-        "snow": 0.0,
-        "rain": 0.0,
-        "freezing_rain": 0.0,
-        "ice_pellets": 0.0,
-        "hrdps_link": "",
-        "gdps_link": "",
-        "rdps_link": "",
-        "nam_link": "",
-        "gfs_link": "",
-        "google_map_link": "",
-        "windy_link": "",
-        "webcam_link": ""
-    },
-    {
         "name": "Mont Hog's Back",
+        "region": "Gaspésie",
         "lat": "48.85675",
         "lon": "-66.10941",
         "snow": 0.0,
@@ -357,7 +324,8 @@ mountains = [
         "webcam_link": "https://avalanchequebec.ca/en/webcam/"
     },
     {
-        "name": "Mont Veyrier (Monts Groulx)",
+        "name": "Mont Veyrier",
+        "region": "Côte-Nord",
         "lat": "51.53338",
         "lon": "-68.08214",
         "snow": 0.0,
@@ -375,6 +343,7 @@ mountains = [
     },
     {
         "name": "Mont Valin",
+        "region": "Saguenay-Lac-Saint-Jean",
         "lat": "48.61678",
         "lon": "-70.79904",
         "snow": 0.0,
@@ -392,6 +361,7 @@ mountains = [
     },
     {
         "name": "Le Valinouët",
+        "region": "Saguenay-Lac-Saint-Jean",
         "lat": "48.63892",
         "lon": "-70.89714",
         "snow": 0.0,
@@ -409,6 +379,7 @@ mountains = [
     },
     {
         "name": "Ski Bromont",
+        "region": "Estrie",
         "lat": "45.28877",
         "lon": "-72.63882",
         "snow": 0.0,
@@ -426,6 +397,7 @@ mountains = [
     },
     {
         "name": "Owl's Head",
+        "region": "Estrie",
         "lat": "45.06267",
         "lon": "-72.29796",
         "snow": 0.0,
@@ -443,6 +415,7 @@ mountains = [
     },
     {
         "name": "Mont Blanc",
+        "region": "Laurentides",
         "lat": "46.10164",
         "lon": "-74.48507",
         "snow": 0.0,
@@ -460,6 +433,7 @@ mountains = [
     },
     {
         "name": "Mont Tremblant",
+        "region": "Laurentides",
         "lat": "46.22896",
         "lon": "-74.55661",
         "snow": 0.0,
@@ -477,6 +451,7 @@ mountains = [
     },
     {
         "name": "Mont Shefford",
+        "region": "Estrie",
         "lat": "45.36228",
         "lon": "-72.61082",
         "snow": 0.0,
@@ -494,6 +469,7 @@ mountains = [
     },
     {
         "name": "Mont Adstock",
+        "region": "Chaudière-Appalaches",
         "lat": "46.03107",
         "lon": "-71.20695",
         "snow": 0.0,
@@ -511,6 +487,7 @@ mountains = [
     },
     {
         "name": "Jay Peak",
+        "region": "Vermont",
         "lat": "44.91583",
         "lon": "-72.54750",
         "snow": 0.0,
@@ -525,5 +502,23 @@ mountains = [
         "google_map_link": "",
         "windy_link": "",
         "webcam_link": "https://jaypeakresort.com/resort/photo-day",
+    },
+    {
+        "name": "Touski Espace Plein Air",
+        "region": "Laurentides",
+        "lat": "46.19029",
+        "lon": "-74.35254",
+        "snow": 0.0,
+        "rain": 0.0,
+        "freezing_rain": 0.0,
+        "ice_pellets": 0.0,
+        "hrdps_link": "",
+        "gdps_link": "",
+        "rdps_link": "",
+        "nam_link": "",
+        "gfs_link": "",
+        "google_map_link": "",
+        "windy_link": "",
+        "webcam_link": "",
     }
 ]
