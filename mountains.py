@@ -520,5 +520,23 @@ mountains = [
         "google_map_link": "",
         "windy_link": "",
         "webcam_link": "",
+    },
+    {
+        "name": "Parc national de la Jacques‑Cartier",
+        "region": "Capitale-Nationale",
+        "lat": "47.20756",
+        "lon": "-71.38161",
+        "snow": 0.0,
+        "rain": 0.0,
+        "freezing_rain": 0.0,
+        "ice_pellets": 0.0,
+        "hrdps_link": "",
+        "gdps_link": "",
+        "rdps_link": "",
+        "nam_link": "",
+        "gfs_link": "",
+        "google_map_link": "",
+        "windy_link": "",
+        "webcam_link": "https://www.sepaq.com/pq/jac/webcam.dot",
     }
 ]
