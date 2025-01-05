@@ -1,7 +1,7 @@
 mountains = [
     {
         "name": "Mont Comi",
-        "region": "Bas-Saint-Laurent",
+        "region": "B.-St-L.",
         "lat": "48.46575",
         "lon": "-68.21036",
         "snow": 0.0,
@@ -19,7 +19,7 @@ mountains = [
     },
     {
         "name": "Mont Plante",
-        "region": "Laurentides",
+        "region": "Laur.",
         "lat": "46.02857",
         "lon": "-74.19882",
         "snow": 0.0,

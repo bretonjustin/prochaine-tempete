@@ -1,7 +1,7 @@
 mountains = [
     {
         "name": "Mont Comi",
-        "region": "Bas-Saint-Laurent",
+        "region": "B.-St-L.",
         "lat": "48.46575",
         "lon": "-68.21036",
         "snow": 0.0,
@@ -109,7 +109,7 @@ mountains = [
     },
     {
         "name": "Massif du Sud",
-        "region": "Chaudière-Appalaches",
+        "region": "Ch.-App.",
         "lat": "46.62235",
         "lon": "-70.48768",
         "snow": 0.0,
@@ -127,7 +127,7 @@ mountains = [
     },
     {
         "name": "Mont Edouard",
-        "region": "Saguenay-Lac-Saint-Jean",
+        "region": "S.–L.-St-J.",
         "lat": "48.15209",
         "lon": "-70.28355",
         "snow": 0.0,
@@ -145,7 +145,7 @@ mountains = [
     },
     {
         "name": "Massif de Charlevoix",
-        "region": "Capitale-Nationale",
+        "region": "Cap.-N.",
         "lat": "47.27839",
         "lon": "-70.61007",
         "snow": 0.0,
@@ -181,7 +181,7 @@ mountains = [
     },
     {
         "name": "Mont Saint-Anne",
-        "region": "Capitale-Nationale",
+        "region": "Cap.-N.",
         "lat": "47.08696",
         "lon": "-70.93293",
         "snow": 0.0,
@@ -199,7 +199,7 @@ mountains = [
     },
     {
         "name": "Montagne Noire",
-        "region": "Lanaudière",
+        "region": "Lan.",
         "lat": "46.24366",
         "lon": "-74.29391",
         "snow": 0.0,
@@ -217,7 +217,7 @@ mountains = [
     },
     {
         "name": "Mont des Allemands",
-        "region": "Saguenay-Lac-Saint-Jean",
+        "region": "S.–L.-St-J.",
         "lat": "49.17056",
         "lon": "-71.47667",
         "snow": 0.0,
@@ -235,7 +235,7 @@ mountains = [
     },
     {
         "name": "Mont Saint-Mathieu",
-        "region": "Mauricie",
+        "region": "Maur.",
         "lat": "46.59737",
         "lon": "-72.83955",
         "snow": 0.0,
@@ -253,7 +253,7 @@ mountains = [
     },
     {
         "name": "Mont Alta",
-        "region": "Laurentides",
+        "region": "Laur.",
         "lat": "46.03834",
         "lon": "-74.24119",
         "snow": 0.0,
@@ -271,7 +271,7 @@ mountains = [
     },
     {
         "name": "Mont Gallix",
-        "region": "Côte-Nord",
+        "region": "C.-N.",
         "lat": "50.16871",
         "lon": "-66.71735",
         "snow": 0.0,
@@ -289,7 +289,7 @@ mountains = [
     },
     {
         "name": "Mont Plante (Val-David-Val-Morin)",
-        "region": "Laurentides",
+        "region": "Laur.",
         "lat": "46.02857",
         "lon": "-74.19882",
         "snow": 0.0,
@@ -325,7 +325,7 @@ mountains = [
     },
     {
         "name": "Mont Veyrier",
-        "region": "Côte-Nord",
+        "region": "C.-N.",
         "lat": "51.53338",
         "lon": "-68.08214",
         "snow": 0.0,
@@ -343,7 +343,7 @@ mountains = [
     },
     {
         "name": "Mont Valin",
-        "region": "Saguenay-Lac-Saint-Jean",
+        "region": "S.–L.-St-J.",
         "lat": "48.61678",
         "lon": "-70.79904",
         "snow": 0.0,
@@ -361,7 +361,7 @@ mountains = [
     },
     {
         "name": "Le Valinouët",
-        "region": "Saguenay-Lac-Saint-Jean",
+        "region": "S.–L.-St-J.",
         "lat": "48.63892",
         "lon": "-70.89714",
         "snow": 0.0,
@@ -415,7 +415,7 @@ mountains = [
     },
     {
         "name": "Mont Blanc",
-        "region": "Laurentides",
+        "region": "Laur.",
         "lat": "46.10164",
         "lon": "-74.48507",
         "snow": 0.0,
@@ -433,7 +433,7 @@ mountains = [
     },
     {
         "name": "Mont Tremblant",
-        "region": "Laurentides",
+        "region": "Laur.",
         "lat": "46.22896",
         "lon": "-74.55661",
         "snow": 0.0,
@@ -469,7 +469,7 @@ mountains = [
     },
     {
         "name": "Mont Adstock",
-        "region": "Chaudière-Appalaches",
+        "region": "Ch.-App.",
         "lat": "46.03107",
         "lon": "-71.20695",
         "snow": 0.0,
@@ -487,7 +487,7 @@ mountains = [
     },
     {
         "name": "Jay Peak",
-        "region": "Vermont",
+        "region": "VT",
         "lat": "44.91583",
         "lon": "-72.54750",
         "snow": 0.0,
@@ -505,7 +505,7 @@ mountains = [
     },
     {
         "name": "Touski Espace Plein Air",
-        "region": "Laurentides",
+        "region": "Laur.",
         "lat": "46.19029",
         "lon": "-74.35254",
         "snow": 0.0,
@@ -523,7 +523,7 @@ mountains = [
     },
     {
         "name": "Parc national de la Jacques‑Cartier",
-        "region": "Capitale-Nationale",
+        "region": "Cap.-N.",
         "lat": "47.20756",
         "lon": "-71.38161",
         "snow": 0.0,
