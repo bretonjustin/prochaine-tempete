@@ -48,6 +48,7 @@
             <th>Pluie (mm)</th>
             <th>Verglas (mm)</th>
             <th>Grésil (mm)</th>
+            <th>Base (cm)</th>
 
             <th>2 jours</th>
             <th>3.5 jours</th>
@@ -68,6 +69,7 @@
             <td>{{ mountain["rain"] }}</td>
             <td>{{ mountain["freezing_rain"] }}</td>
             <td>{{ mountain["ice_pellets"] }}</td>
+            <td>{{ mountain["current_snow_depth"] }}</td>
 
             <td class="text-nowrap"><a target="_blank" href='{{ mountain["hrdps_link"] }}'
                                        class="btn btn-primary text-wrap"
@@ -106,6 +108,9 @@
     </table>
 
     <div id="my_chart">
+    </div>
+
+    <div id="snow_depth_chart">
     </div>
 
     <div id="map" style="height:600px;" class="mt-4 mb-4"></div>
@@ -155,6 +160,10 @@
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script>
     {{ fig | safe }}
+</script>
+
+<script>
+    {{ snow_depth_plot | safe }}
 </script>
 
 <!-- Make sure you put this AFTER Leaflet's CSS -->
