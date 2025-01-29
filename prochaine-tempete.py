@@ -115,9 +115,9 @@ def get_snow_depth_array():
             "longitude": lon_array,
             "hourly": "snow_depth",
             "timezone": timezone_array,
-            "past_days": 3,
-            "forecast_days": 3,
-            "models": "best_match"
+            "past_days": 2,
+            "forecast_days": 2,
+            "models": "gem_hrdps_continental"
         }
         responses = openmeteo.weather_api(url, params=params)
 
