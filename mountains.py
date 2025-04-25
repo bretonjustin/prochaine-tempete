@@ -53,24 +53,6 @@ mountains = [
         "windy_link": "",
         "webcam_link": "https://avalanchequebec.ca/en/webcam/"
     },
-     {
-        "name": "Mont Médaille",
-        "region": "Gaspésie",
-        "lat": "49.10286",
-        "lon": "-66.24049",
-        "snow": 0.0,
-        "rain": 0.0,
-        "freezing_rain": 0.0,
-        "ice_pellets": 0.0,
-        "hrdps_link": "",
-        "gdps_link": "",
-        "rdps_link": "",
-        "nam_link": "",
-        "gfs_link": "",
-        "google_map_link": "",
-        "windy_link": "",
-        "webcam_link": ""
-    },
     {
         "name": "Mont Gosford",
         "region": "Estrie",
